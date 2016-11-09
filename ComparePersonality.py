@@ -13,8 +13,14 @@ access_token_key = twitter_access_token,
 access_token_secret = twitter_access_secret)
 
 # This handles will be replaced for a user input raw_input
-handle = '@realDonaldTrump'
+handle = '@Codecademy' #'@realDonaldTrump'
 
-statuses = twitter_api.GetUserTimeline(screen_name=handle,
-count=200,
-include_rts=False)
+# this will retrieve user status
+statuses = twitter_api.GetUserTimeline(screen_name=handle, count=1, include_rts=False)
+
+# this will be used to store the concatenated twitter posts
+text = ""
+
+for status in statuses:
+    if (status.lang == 'en'):
+        text += status.text.encode('utf-8')
