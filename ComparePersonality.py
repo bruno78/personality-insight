@@ -30,3 +30,7 @@ pi_username = username
 pi_password = password
 
 personality_insights = PersonalityInsights(username = pi_username, password = pi_password)
+
+pi_result = personality_insights.profile(text)
+
+return pi_result
