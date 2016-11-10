@@ -16,7 +16,7 @@ access_token_secret = twitter_access_secret)
 handle = '@Codecademy' #'@realDonaldTrump'
 
 # this will retrieve user status
-statuses = twitter_api.GetUserTimeline(screen_name=handle, count=1, include_rts=False)
+statuses = twitter_api.GetUserTimeline(screen_name=handle, count=10, include_rts=False)
 
 # this will be used to store the concatenated twitter posts
 text = ""
@@ -24,3 +24,9 @@ text = ""
 for status in statuses:
     if (status.lang == 'en'):
         text += status.text.encode('utf-8')
+
+# The IBM Bluemix credentials for Personality Insights
+pi_username = username
+pi_password = password
+
+personality_insights = PersonalityInsights(username = pi_username, password = pi_password)
